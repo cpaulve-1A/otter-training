@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { O3rComponent } from '@o3r/core';
 import { ResultPresContext } from './result-pres.context';
 @O3rComponent({ componentType: 'Component' })
@@ -10,4 +10,6 @@ import { ResultPresContext } from './result-pres.context';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultPresComponent implements ResultPresContext {
+  @Input()
+  public workFolder: string = '';
 }

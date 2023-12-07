@@ -5,21 +5,19 @@
 
 app-step-pres {
   max-height: 40vh;
+  background: var(--bs-tertiary-bg);
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+  .action-bar [tabindex] {
+    cursor: pointer;
+  }
 
   .exercise-header {
     justify-content: space-between;
-    padding: .5rem;
-    height: 2.5rem;
+    align-items: center;
     background-color: var(--bs-primary-bg-subtle);
-    font-size: 1rem;
     font-family: design-factory.$headings-font-family;
-
-    h1 {
-      font-size: 1rem;
-    }
   }
 
   .steps {

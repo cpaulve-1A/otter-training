@@ -2,6 +2,8 @@
   "recommendations": [
     "angular.ng-template",
     "AmadeusITGroup.otter-devtools",
-    "EditorConfig.EditorConfig"
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint"
   ]
 }

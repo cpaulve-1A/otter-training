@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ExerciseOneComponent } from './exercise-one.component';
 import {StepPresModule} from "../../components/step";
 import {ResultPresModule} from "../../components/result";
+import { ExerciseOneComponentPresModule } from '../../components/exercises/exercise-one-component';
 
 
 
@@ -15,7 +16,8 @@ import {ResultPresModule} from "../../components/result";
     CommonModule,
     RouterModule.forChild([{path: '', component: ExerciseOneComponent}]),
     StepPresModule,
-    ResultPresModule
+    ResultPresModule,
+    ExerciseOneComponentPresModule
   ],
   exports: [
     ExerciseOneComponent

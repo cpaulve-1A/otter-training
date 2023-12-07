@@ -2,7 +2,8 @@
   "name": "otter-training",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng"
+    "ng": "ng",
+    "start": "npm start"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +25,8 @@
     "@ngrx/store": "~16.3.0",
     "@ngrx/store-devtools": "~16.3.0",
     "@o3r/application": "9.4.1",
-    "@o3r/core": "^9.4.1",
+    "@o3r/core": "9.4.1",
+    "@o3r/eslint-plugin": "9.4.1",
     "ag-grid-angular": "~29.3.5",
     "ag-grid-community": "~29.3.5",
     "bootstrap": "5.2.0",
@@ -38,6 +40,7 @@
     "@angular-devkit/build-angular": "^16.2.10",
     "@angular-devkit/core": "~16.2.0",
     "@angular-devkit/schematics": "~16.2.0",
+    "@angular-eslint/builder": "~16.2.0",
     "@angular/cli": "^16.2.10",
     "@angular/compiler-cli": "^16.2.0",
     "@o3r/dev-tools": "^9.4.1",
@@ -45,6 +48,12 @@
     "@o3r/workspace": "^9.4.1",
     "@schematics/angular": "~16.2.0",
     "@types/jasmine": "~4.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.22.0",
+    "eslint-plugin-jsdoc": "~46.8.0",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "eslint-plugin-unicorn": "^47.0.0",
     "globby": "^11.1.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",

@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { O3rComponent } from '@o3r/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import {Exercise, data} from './exercise-one';
+
 
 @O3rComponent({ componentType: 'Page' })
 @Component({
@@ -10,5 +13,5 @@ import { O3rComponent } from '@o3r/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExerciseOneComponent {
-
+  public data: Exercise = data;
 }
