@@ -6458,7 +6458,7 @@ os-tmpdir@~1.0.2:
     "@ngrx/store" "~16.3.0"
     "@ngrx/store-devtools" "~16.3.0"
     "@o3r/application" "9.4.1"
-    "@o3r/eslint-config-otter" "^9.4.1"
+    "@o3r/eslint-config-otter" "9.4.1"
     "@o3r/eslint-plugin" "9.4.1"
     bootstrap "5.2.0"
     bootstrap-icons "^1.10.5"
