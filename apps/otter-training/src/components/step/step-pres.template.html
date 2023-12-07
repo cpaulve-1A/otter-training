@@ -1,9 +1,18 @@
-<div class="exercise-header accordion-header d-flex">
-  <h1>{{title}}</h1>
-  <span (click)="size === 'reduced' ? size = 'standard': size = 'reduced'">
-    {{size === 'standard' && '-' || '+'}}
-  </span>
+<div class="exercise-header accordion-header d-flex full-width px-5 ">
+  <h2 class="fs-3">{{title}} - {{steps[stepNumber]?.title}}</h2>
+  <div class="action-bar">
+
+    <span class="px-2" tabindex="0" (click)="stepNumber = 0"> << </span>
+    <span class="px-2" tabindex="0" (click)="stepNumber = (stepNumber > 0 ? stepNumber - 1 : stepNumber)"><</span>
+    <span class="px-2">{{stepNumber}}</span>
+    <span class="px-2" tabindex="0" (click)="stepNumber = (stepNumber < steps.length - 1 ? stepNumber + 1 : stepNumber)">></span>
+    <span class="px-2" tabindex="0" (click)="stepNumber = (steps.length > 0 ? steps.length - 1 : 0)" > >> </span>
+
+    <span tabindex="0" (click)="size === 'reduced' ? size = 'standard': size = 'reduced'">
+      <b>{{size === 'standard' && '-' || '+'}}</b>
+    </span>
 </div>
-<div *ngIf="size !== 'reduced'" class="steps">
-  <ng-content select=".steps-details"></ng-content>
+</div>
+<div *ngIf="size !== 'reduced'" class="steps px-5 fs-5">
+  <p [innerHTML]="steps[stepNumber]?.content"></p>
 </div>

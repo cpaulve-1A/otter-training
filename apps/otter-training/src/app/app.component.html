@@ -8,6 +8,9 @@
   </div>
 </header>
 <div class="page-content">
-  <router-outlet></router-outlet>
+  <app-step-pres [title]="data.title" [steps]="data.steps"></app-step-pres>
+  <app-result-pres [workFolder]="data.path">
+    <app-component-creation-exercise-pres></app-component-creation-exercise-pres>
+  </app-result-pres>
 </div>
 

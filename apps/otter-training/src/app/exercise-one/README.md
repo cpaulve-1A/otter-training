@@ -1,3 +1,0 @@
-# ExerciseOneComponent
-
-the ExerciseOne page

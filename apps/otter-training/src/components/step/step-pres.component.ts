@@ -12,7 +12,11 @@ import { StepPresContext } from './step-pres.context';
 })
 export class StepPresComponent implements StepPresContext {
   @Input()
-  public title: string = "";
+  public title: string | null = "";
+
   @Input()
+  public steps: {title: string, content: string}[] = [];
+
   public size: 'reduced' | 'full' | 'standard' = 'standard';
+  public stepNumber = 0;
 }
