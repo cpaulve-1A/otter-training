@@ -2,9 +2,165 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "schematicCollections": [
+      "@o3r/core",
+      "@o3r/workspace",
+      "@schematics/angular"
+    ],
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
+    "otter-training": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@o3r/core:component": {
+          "useContext": true,
+          "path": "apps/otter-training/src/components"
+        },
+        "@o3r/core:page": {
+          "path": "apps/otter-training/src/app"
+        },
+        "@o3r/core:service": {
+          "path": "apps/otter-training/src/services"
+        },
+        "@o3r/core:store": {
+          "path": "apps/otter-training/src/store"
+        },
+        "@o3r/core:schematics-update": {
+          "path": "apps/otter-training/src/schematics"
+        },
+        "@o3r/testing:playwright-scenario": {
+          "path": "apps/otter-training/e2e-playwright/scenarios"
+        },
+        "@o3r/testing:playwright-sanity": {
+          "path": "apps/otter-training/e2e-playwright/sanity"
+        }
+      },
+      "root": "apps/otter-training",
+      "sourceRoot": "apps/otter-training/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/otter-training",
+            "index": "apps/otter-training/src/index.html",
+            "main": "apps/otter-training/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "apps/otter-training/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/otter-training/src/favicon.ico",
+              "apps/otter-training/src/assets"
+            ],
+            "styles": [
+              "apps/otter-training/src/styles.scss"
+            ],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src",
+                "node_modules"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "outputPath": "apps\\otter-training\\dist"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/otter-training/src/environments/environment.ts",
+                  "with": "apps/otter-training/src/environments/environment.development.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "otter-training:build:production"
+            },
+            "development": {
+              "browserTarget": "otter-training:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "otter-training:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "apps/otter-training/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/otter-training/src/favicon.ico",
+              "apps/otter-training/src/assets"
+            ],
+            "styles": [
+              "apps/otter-training/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "schematics": {
+    "*:ng-add": {
+      "registerDevtool": true
+    },
+    "*:*": {
+      "libsDir": "libs",
+      "appsDir": "apps"
+    },
+    "@o3r/core:component": {
+      "useContext": true
+    },
+    "@o3r/core:component-container": {
+      "useContext": true
+    },
+    "@o3r/core:component-presenter": {
+      "useContext": true
+    }
   }
 }

@@ -1,0 +1,9 @@
+<div class="exercise-header accordion-header d-flex">
+  <h1>{{title}}</h1>
+  <span (click)="size === 'reduced' ? size = 'standard': size = 'reduced'">
+    {{size === 'standard' && '-' || '+'}}
+  </span>
+</div>
+<div *ngIf="size !== 'reduced'" class="steps">
+  <ng-content select=".steps-details"></ng-content>
+</div>
